@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Himanshu from "../assets/Himanshu-Bhayana.WEBP";
+import Himanshu from "../assets/Himanshu-Bhayana.webp";
 
 export default function Hero({ isDark }) {
   const containerVariants = {
