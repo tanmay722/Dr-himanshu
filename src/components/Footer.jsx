@@ -7,6 +7,7 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
   FaInstagram,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 export default function Footer({ isDark }) {
@@ -55,164 +56,259 @@ export default function Footer({ isDark }) {
   };
 
   const bgClass = isDark
-    ? "bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-t border-cyan-400/10"
-    : "bg-gradient-to-r from-white via-blue-50 to-white border-t border-cyan-300/30";
+    ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-t border-cyan-400/10"
+    : "bg-gradient-to-br from-slate-50 via-white to-slate-50 border-t border-cyan-300/30";
 
   const textClass = isDark ? "text-white" : "text-slate-900";
   const textMutedClass = isDark ? "text-slate-400" : "text-slate-600";
 
   return (
-    <footer className={`${bgClass} transition-colors duration-300`}>
-      <motion.div
-        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+    <>
+      {/* WhatsApp Floating Button */}
+      <motion.a
+        href="https://wa.me/919599149380"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:shadow-green-500/30 transition-all duration-300"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        whileHover={{
+          scale: 1.1,
+          backgroundColor: "#22c55e",
+        }}
+        whileTap={{ scale: 0.9 }}
+        title="Chat on WhatsApp"
       >
-        {/* === Top Grid === */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* --- 1. About / Info --- */}
-          <div>
-            <h3
-              className={`text-lg font-bold mb-4 flex items-center gap-2 ${textClass}`}
-            >
-              <div className="w-7 h-7 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center shadow-sm">
-                <span className="text-white font-bold text-xs">DR</span>
-              </div>
-              Dr. Himanshu Bhayana
-            </h3>
-            <p className={`text-sm ${textMutedClass}`}>
-              Associate Professor, Department of Orthopaedics
-            </p>
-            <p className={`text-sm ${textMutedClass}`}>
-              PGIMER, Chandigarh, India
-            </p>
-
-            {/* Contact Info */}
-            <div className="mt-4 space-y-2 text-sm">
-              <p className="flex items-center gap-2">
-                <FaEnvelope className="text-cyan-500" />
-                <a
-                  href="mailto:himanshu.bhayana.mamc@gmail.com"
-                  className="hover:text-cyan-400 transition"
-                >
-                  himanshu.bhayana.mamc@gmail.com
-                </a>
-              </p>
-              <p className="flex items-center gap-2">
-                <FaPhoneAlt className="text-cyan-500" /> +91 95991 49380
-              </p>
-              <p className="flex items-center gap-2">
-                <FaMapMarkerAlt className="text-cyan-500" /> Chandigarh, India
-              </p>
-            </div>
-          </div>
-
-          {/* --- 2. Quick Links --- */}
-          <div>
-            <h4 className={`${textClass} font-semibold mb-4`}>Quick Links</h4>
-            <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link}>
-                  <button
-                    onClick={() => scrollToSection(link)}
-                    className={`transition-colors text-sm ${textMutedClass} hover:text-cyan-400`}
-                  >
-                    {link}
-                  </button>
-                </li>
-              ))}
-              <li>
-                <Link
-                  to="/publications"
-                  className={`transition-colors text-sm ${textMutedClass} hover:text-cyan-400`}
-                >
-                  All Publications
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* --- 3. Resources --- */}
-          <div>
-            <h4 className={`${textClass} font-semibold mb-4`}>Resources</h4>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="/publications"
-                  className={`transition-colors text-sm ${textMutedClass} hover:text-cyan-400`}
-                >
-                  Research Papers
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className={`transition-colors text-sm ${textMutedClass} hover:text-cyan-400`}
-                >
-                  Guest Talks & Seminars
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className={`transition-colors text-sm ${textMutedClass} hover:text-cyan-400`}
-                >
-                  Workshops Attended
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* --- 4. Social Links --- */}
-          <div>
-            <h4 className={`${textClass} font-semibold mb-4`}>Connect</h4>
-            <div className="flex gap-4">
-              {socialLinks.map((link, index) => (
-                <motion.a
-                  key={index}
-                  href={link.url}
-                  className={`text-2xl ${textMutedClass} transition-colors ${link.color}`}
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.95 }}
-                  title={link.name}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.icon}
-                </motion.a>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* === Footer Bottom Text === */}
+        <FaWhatsapp className="text-white text-2xl" />
         <motion.div
-          className={`border-t ${
-            isDark ? "border-cyan-400/10" : "border-cyan-300/30"
-          } pt-8 text-center ${textMutedClass} text-sm transition-colors`}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
+          className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center"
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <span className="text-white text-xs font-bold">!</span>
+        </motion.div>
+      </motion.a>
+
+      {/* Footer */}
+      <footer className={`${bgClass} transition-colors duration-300 relative`}>
+        <motion.div
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <p>© {currentYear} Dr. Himanshu Bhayana. All rights reserved.</p>
-          <p className="mt-2">
-            Built with dedication for orthopaedic education, clinical
-            excellence, and research advancement.
-          </p>
-          <p className="mt-1">
-            📧{" "}
-            <a
-              href="mailto:himanshu.bhayana.mamc@gmail.com"
-              className="text-cyan-500 hover:text-blue-500 font-medium"
+          {/* === Top Grid === */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+            {/* --- 1. About / Info --- */}
+            <div className="space-y-3">
+              <motion.h3
+                className={`text-lg font-bold flex items-center gap-2 ${textClass}`}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center shadow-lg">
+                  <span className="text-white font-bold text-xs">DR</span>
+                </div>
+                Dr. Himanshu Bhayana
+              </motion.h3>
+
+              <motion.p
+                className={`text-sm ${textMutedClass} leading-relaxed`}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                Associate Professor, Department of Orthopaedics at PGIMER,
+                Chandigarh
+              </motion.p>
+
+              {/* Contact Info */}
+              <motion.div
+                className="space-y-1.5 text-sm"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center gap-2">
+                  <FaEnvelope className="text-cyan-500 text-xs flex-shrink-0" />
+                  <a
+                    href="mailto:himanshu.bhayana.mamc@gmail.com"
+                    className="hover:text-cyan-400 transition-colors truncate"
+                  >
+                    himanshu.bhayana.mamc@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaPhoneAlt className="text-cyan-500 text-xs flex-shrink-0" />
+                  <span>+91 95991 49380</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaMapMarkerAlt className="text-cyan-500 text-xs flex-shrink-0" />
+                  <span>Chandigarh, India</span>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* --- 2. Quick Links --- */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
             >
-              himanshu.bhayana.mamc@gmail.com
-            </a>
-          </p>
+              <h4 className={`${textClass} font-semibold mb-3 text-sm`}>
+                Quick Links
+              </h4>
+              <ul className="space-y-1.5">
+                {quickLinks.map((link) => (
+                  <li key={link}>
+                    <button
+                      onClick={() => scrollToSection(link)}
+                      className={`transition-colors text-xs ${textMutedClass} hover:text-cyan-400 hover:translate-x-1 transform duration-200`}
+                    >
+                      {link}
+                    </button>
+                  </li>
+                ))}
+                <li>
+                  <Link
+                    to="/publications"
+                    className={`transition-colors text-xs ${textMutedClass} hover:text-cyan-400 hover:translate-x-1 transform duration-200`}
+                  >
+                    All Publications
+                  </Link>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* --- 3. Resources --- */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h4 className={`${textClass} font-semibold mb-3 text-sm`}>
+                Resources
+              </h4>
+              <ul className="space-y-1.5">
+                <li>
+                  <a
+                    href="/publications"
+                    className={`transition-colors text-xs ${textMutedClass} hover:text-cyan-400 hover:translate-x-1 transform duration-200`}
+                  >
+                    Research Papers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className={`transition-colors text-xs ${textMutedClass} hover:text-cyan-400 hover:translate-x-1 transform duration-200`}
+                  >
+                    Guest Talks
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className={`transition-colors text-xs ${textMutedClass} hover:text-cyan-400 hover:translate-x-1 transform duration-200`}
+                  >
+                    Workshops
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className={`transition-colors text-xs ${textMutedClass} hover:text-cyan-400 hover:translate-x-1 transform duration-200`}
+                  >
+                    Case Studies
+                  </a>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* --- 4. Social Links --- */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <h4 className={`${textClass} font-semibold mb-3 text-sm`}>
+                Connect With Me
+              </h4>
+              <div className="flex gap-3 flex-wrap">
+                {socialLinks.map((link, index) => (
+                  <motion.a
+                    key={index}
+                    href={link.url}
+                    className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                      isDark ? "bg-slate-700" : "bg-slate-200"
+                    } transition-all duration-300 ${
+                      link.color
+                    } shadow-md hover:shadow-lg`}
+                    whileHover={{
+                      scale: 1.1,
+                      y: -2,
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    title={link.name}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.icon}
+                  </motion.a>
+                ))}
+              </div>
+
+              {/* WhatsApp Quick Action */}
+              <motion.div
+                className="mt-4"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <a
+                  href="https://wa.me/919599149380"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-2 text-xs ${
+                    isDark
+                      ? "bg-green-600 hover:bg-green-500"
+                      : "bg-green-500 hover:bg-green-600"
+                  } text-white px-3 py-2 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg`}
+                >
+                  <FaWhatsapp className="text-white" />
+                  <span>Chat on WhatsApp</span>
+                </a>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* === Footer Bottom Text === */}
+          <motion.div
+            className={`border-t ${
+              isDark ? "border-cyan-400/10" : "border-cyan-300/30"
+            } pt-6 text-center ${textMutedClass} text-xs transition-colors`}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <p>© {currentYear} Dr. Himanshu Bhayana. All rights reserved.</p>
+            <p className="mt-1">
+              Built with dedication for orthopaedic education, clinical
+              excellence, and research advancement.
+            </p>
+          </motion.div>
         </motion.div>
-      </motion.div>
-    </footer>
+      </footer>
+    </>
   );
 }

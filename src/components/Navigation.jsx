@@ -29,17 +29,23 @@ export default function Navigation({ isDark, toggleTheme }) {
     { label: "Education", id: "education", icon: HiOutlineAcademicCap },
     { label: "Memberships", id: "memberships", icon: HiOutlineAcademicCap },
     { label: "Guest Talks", id: "guest-talks", icon: HiOutlineBookOpen },
+    { label: "Publications", id: "publications", icon: HiOutlineBookOpen },
+    { label: "Testimonials", id: "testimonials", icon: HiOutlineUser },
     { label: "Contact", id: "contact", icon: HiOutlineMail },
   ];
 
   const scrollToSection = (id) => {
-    if (location.pathname === "/publications") {
-      window.location.href = "/#" + id;
+    // If we're not on the home page, navigate to home page first with hash
+    if (location.pathname !== "/") {
+      window.location.href = `/#${id}`;
     } else {
+      // If we're on home page, scroll to section
       const element = document.getElementById(id);
-      element?.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
+    setIsOpen(false);
   };
 
   const bgClass = isDark
@@ -78,13 +84,19 @@ export default function Navigation({ isDark, toggleTheme }) {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 2xl:px-8">
         <div className={`py-4 flex justify-between items-center ${textClass}`}>
           {/* Logo */}
           <motion.div
             className="cursor-pointer flex items-center gap-2 flex-shrink-0"
             whileHover={{ scale: 1.05 }}
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => {
+              if (location.pathname === "/") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              } else {
+                window.location.href = "/";
+              }
+            }}
           >
             <div className="w-9 h-9 bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-500 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/30">
               <span className="text-white font-bold text-xs">DR</span>
@@ -119,7 +131,7 @@ export default function Navigation({ isDark, toggleTheme }) {
               );
             })}
             <Link
-              to="/publications"
+              to="/gallery"
               className={`px-3 py-2 text-sm font-medium flex items-center gap-2 rounded-lg transition-all duration-300 ${
                 isDark
                   ? "text-slate-300 hover:text-cyan-400 hover:bg-slate-800/60"
@@ -127,7 +139,7 @@ export default function Navigation({ isDark, toggleTheme }) {
               }`}
             >
               <HiOutlineBookOpen size={18} />
-              <span>All Publications</span>
+              <span>Gallery</span>
             </Link>
           </div>
 
@@ -209,7 +221,7 @@ export default function Navigation({ isDark, toggleTheme }) {
                   );
                 })}
                 <Link
-                  to="/publications"
+                  to="/gallery"
                   onClick={() => setIsOpen(false)}
                   className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
                     isDark
@@ -218,7 +230,7 @@ export default function Navigation({ isDark, toggleTheme }) {
                   }`}
                 >
                   <HiOutlineBookOpen size={20} className="flex-shrink-0" />
-                  <span>All Publications</span>
+                  <span>Gallery</span>
                 </Link>
               </div>
 
@@ -238,8 +250,6 @@ export default function Navigation({ isDark, toggleTheme }) {
                       ? "text-slate-200 bg-slate-700/30 hover:bg-slate-700/60"
                       : "text-slate-700 bg-blue-100/30 hover:bg-blue-100/60"
                   }`}
-                  whileHover={{ x: 4 }}
-                  whileTap={{ scale: 0.98 }}
                 >
                   {isDark ? (
                     <FiSun size={20} className="text-yellow-400" />

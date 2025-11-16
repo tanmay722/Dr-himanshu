@@ -15,8 +15,11 @@ import Publications from "./components/Publications";
 import PublicationDetails from "./pages/PublicationDetails";
 import Awards from "./components/Awards";
 import GuestTalks from "./components/GuestTalks";
+import Testimonials from "./components/Testimonials";
+import TestimonialsPage from "./pages/TestimonialsPage";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import GalleryPage from "./pages/GalleryPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -70,6 +73,7 @@ function App() {
                 <Publications isDark={isDark} />
                 <Awards isDark={isDark} />
                 <GuestTalks isDark={isDark} />
+                <Testimonials isDark={isDark} />
                 <Contact isDark={isDark} />
                 <Footer isDark={isDark} />
               </main>
@@ -83,6 +87,11 @@ function App() {
                 <Footer isDark={isDark} />
               </div>
             }
+          />
+          <Route path="/gallery" element={<GalleryPage isDark={isDark} />} />
+          <Route
+            path="/testimonials"
+            element={<TestimonialsPage isDark={isDark} />}
           />
         </Routes>
       </div>

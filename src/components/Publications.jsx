@@ -161,7 +161,7 @@ export default function Publications({ isDark }) {
             to="/publications"
             className="inline-block px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all"
           >
-            View All Publications (38+) →
+            View All Publications →
           </Link>
         </motion.div>
       </div>

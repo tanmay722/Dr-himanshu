@@ -59,7 +59,11 @@ export default function GuestTalks({ isDark }) {
 
   const cardBg = isDark ? "bg-slate-800/50" : "bg-white";
   const cardBorder = isDark ? "border-cyan-400/20" : "border-cyan-300/30";
+  const textPrimary = isDark ? "text-white" : "text-slate-900";
   const textMutedClass = isDark ? "text-slate-400" : "text-slate-600";
+  const titleHover = isDark
+    ? "group-hover:text-cyan-400"
+    : "group-hover:text-cyan-600";
 
   return (
     <section
@@ -94,7 +98,9 @@ export default function GuestTalks({ isDark }) {
                 {String(index + 1).padStart(2, "0")}
               </div>
               <div className="flex-1 min-w-0">
-                <h5 className="text-white font-semibold text-sm mb-1 group-hover:text-cyan-400 transition-colors">
+                <h5
+                  className={`${textPrimary} font-semibold text-sm mb-1 ${titleHover} transition-colors`}
+                >
                   {talk.title}
                 </h5>
                 <p className={`text-xs mb-1 ${textMutedClass}`}>{talk.event}</p>
