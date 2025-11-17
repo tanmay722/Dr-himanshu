@@ -89,6 +89,38 @@ export default function Footer({ isDark }) {
         </motion.div>
       </motion.a>
 
+      {/* Left Side Social Media Icons - Visible on all screens */}
+      <motion.div
+        className="fixed left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-40 flex flex-col gap-3 sm:gap-4"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        {socialLinks.map((link, index) => (
+          <motion.a
+            key={index}
+            href={link.url}
+            className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center ${
+              isDark
+                ? "bg-slate-800/80 backdrop-blur-sm"
+                : "bg-white/80 backdrop-blur-sm"
+            } shadow-lg border ${
+              isDark ? "border-slate-700" : "border-slate-200"
+            } transition-all duration-300 ${link.color} text-base sm:text-lg`}
+            whileHover={{
+              scale: 1.15,
+              x: 8,
+            }}
+            whileTap={{ scale: 0.95 }}
+            title={link.name}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {link.icon}
+          </motion.a>
+        ))}
+      </motion.div>
+
       {/* Footer */}
       <footer className={`${bgClass} transition-colors duration-300 relative`}>
         <motion.div
@@ -98,22 +130,24 @@ export default function Footer({ isDark }) {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {/* === Top Grid === */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+          {/* === Responsive Grid === */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-6">
             {/* --- 1. About / Info --- */}
-            <div className="space-y-3">
-              <motion.h3
+            <motion.div
+              className="space-y-3"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <h3
                 className={`text-lg font-bold flex items-center gap-2 ${textClass}`}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
               >
                 <div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center shadow-lg">
                   <span className="text-white font-bold text-xs">DR</span>
                 </div>
                 Dr. Himanshu Bhayana
-              </motion.h3>
+              </h3>
 
               <motion.p
                 className={`text-sm ${textMutedClass} leading-relaxed`}
@@ -152,7 +186,7 @@ export default function Footer({ isDark }) {
                   <span>Chandigarh, India</span>
                 </div>
               </motion.div>
-            </div>
+            </motion.div>
 
             {/* --- 2. Quick Links --- */}
             <motion.div
@@ -186,58 +220,13 @@ export default function Footer({ isDark }) {
               </ul>
             </motion.div>
 
-            {/* --- 3. Resources --- */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <h4 className={`${textClass} font-semibold mb-3 text-sm`}>
-                Resources
-              </h4>
-              <ul className="space-y-1.5">
-                <li>
-                  <a
-                    href="/publications"
-                    className={`transition-colors text-xs ${textMutedClass} hover:text-cyan-400 hover:translate-x-1 transform duration-200`}
-                  >
-                    Research Papers
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className={`transition-colors text-xs ${textMutedClass} hover:text-cyan-400 hover:translate-x-1 transform duration-200`}
-                  >
-                    Guest Talks
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className={`transition-colors text-xs ${textMutedClass} hover:text-cyan-400 hover:translate-x-1 transform duration-200`}
-                  >
-                    Workshops
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className={`transition-colors text-xs ${textMutedClass} hover:text-cyan-400 hover:translate-x-1 transform duration-200`}
-                  >
-                    Case Studies
-                  </a>
-                </li>
-              </ul>
-            </motion.div>
-
-            {/* --- 4. Social Links --- */}
+            {/* --- 3. Social Links (Hidden on small screens since they're on the left) --- */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
+              className="hidden md:block"
             >
               <h4 className={`${textClass} font-semibold mb-3 text-sm`}>
                 Connect With Me
