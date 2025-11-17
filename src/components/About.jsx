@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profileImage from "../assets/profile.jpg"; // Update with your actual image path
+import profileImage from "../assets/about.jpg"; // Update with your actual image path
 
 export default function About({ isDark }) {
   const containerVariants = {

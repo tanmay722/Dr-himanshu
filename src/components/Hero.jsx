@@ -5,17 +5,13 @@ import { useState, useEffect } from "react";
 import Image1 from "../assets/1.jpg";
 import Image2 from "../assets/2.jpg";
 import Image3 from "../assets/3.jpg";
+import Image4 from "../assets/4.jpg";
 
 export default function Hero({ isDark }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Array of images for the slider
-  const heroImages = [
-    Image1,
-    Image2,
-    Image3,
-    // Add more images as needed
-  ];
+  const heroImages = [Image1, Image2, Image3, Image4];
 
   // Auto-slide functionality
   useEffect(() => {
@@ -161,7 +157,7 @@ export default function Hero({ isDark }) {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span>Book an Appointment</span>
+                <span>Get In Touch</span>
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
