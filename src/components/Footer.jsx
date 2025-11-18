@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  FaLinkedin,
   FaResearchgate,
   FaEnvelope,
+  FaGraduationCap,
   FaPhoneAlt,
   FaMapMarkerAlt,
   FaInstagram,
@@ -21,21 +21,15 @@ export default function Footer({ isDark }) {
       color: "hover:text-pink-500",
     },
     {
-      name: "LinkedIn",
-      icon: <FaLinkedin />,
-      url: "https://www.linkedin.com/in/himanshu-bhayana",
-      color: "hover:text-blue-500",
-    },
-    {
       name: "ResearchGate",
       icon: <FaResearchgate />,
       url: "https://www.researchgate.net/profile/Himanshu-Bhayana",
       color: "hover:text-emerald-400",
     },
     {
-      name: "Email",
-      icon: <FaEnvelope />,
-      url: "mailto:himanshu.bhayana.mamc@gmail.com",
+      name: "Google scholar link",
+      icon: <FaGraduationCap />,
+      url: "https://scholar.google.com/citations?user=jIfRmWMAAAAJ&hl=en",
       color: "hover:text-cyan-400",
     },
   ];
