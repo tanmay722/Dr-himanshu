@@ -59,7 +59,7 @@ export default function Hero({ isDark }) {
 
   return (
     <section
-      className={`relative min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center bg-gradient-to-br ${bgClass} transition-colors duration-300 overflow-hidden`}
+      className={`relative min-h-screen pt-20 sm:pt-32 pb-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center bg-gradient-to-br ${bgClass} transition-colors duration-300 overflow-hidden`}
       id="hero"
     >
       {/* Background Design Elements */}
@@ -112,16 +112,8 @@ export default function Hero({ isDark }) {
           {/* Text Content */}
           <motion.div
             variants={itemVariants}
-            className="space-y-6 text-center lg:text-left"
+            className="space-y-4 sm:space-y-6 text-center lg:text-left"
           >
-            <motion.div
-              variants={itemVariants}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 mb-4"
-            >
-              <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-              <span className="text-sm text-cyan-400 font-medium">INDIA</span>
-            </motion.div>
-
             <motion.h1
               variants={itemVariants}
               className={`text-4xl md:text-6xl lg:text-7xl font-bold ${textClass} leading-tight`}
@@ -149,11 +141,11 @@ export default function Hero({ isDark }) {
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 pt-6 justify-center lg:justify-start"
+              className="flex flex-row gap-4 pt-4 sm:pt-6 justify-center lg:justify-start"
             >
               <motion.a
                 href="#contact"
-                className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-cyan-500/30 transition-all flex items-center justify-center gap-2 group"
+                className="px-4 sm:px-8 py-2 sm:py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-cyan-500/30 transition-all flex items-center justify-center gap-1 sm:gap-2 group"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -161,6 +153,7 @@ export default function Hero({ isDark }) {
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
+                  className="hidden sm:block"
                 >
                   →
                 </motion.span>
@@ -168,14 +161,14 @@ export default function Hero({ isDark }) {
 
               <motion.a
                 href="/publications"
-                className={`px-8 py-4 border-2 border-cyan-400 text-cyan-400 rounded-xl font-semibold ${
+                className={`px-4 sm:px-8 py-2 sm:py-4 border-2 border-cyan-400 text-cyan-400 rounded-xl font-semibold ${
                   isDark ? "hover:bg-cyan-400/10" : "hover:bg-cyan-400/5"
                 } transition-all flex items-center justify-center gap-2 group`}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span>View Publications</span>
-                <span className="group-hover:translate-x-1 transition-transform">
+                <span className="hidden sm:block group-hover:translate-x-1 transition-transform">
                   ↗
                 </span>
               </motion.a>
@@ -200,7 +193,7 @@ export default function Hero({ isDark }) {
               ></div>
 
               {/* Image Slider - Wider and Shorter */}
-              <div className="relative rounded-3xl overflow-hidden border-2 border-cyan-400/30 shadow-2xl aspect-[4/3] w-full">
+              <div className="relative rounded-3xl overflow-hidden border-2 border-cyan-400/30 shadow-2xl aspect-[4/3] mx-auto w-[90%] sm:w-full">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={currentImageIndex}
