@@ -31,6 +31,7 @@ import img28 from "../assets/gallery/28.jpg";
 import img29 from "../assets/gallery/29.jpg";
 import img30 from "../assets/gallery/30.jpg";
 import img31 from "../assets/gallery/31.jpg";
+import img32 from "../assets/gallery/32.jpg";
 
 const GalleryPage = ({ isDark }) => {
   const images = [
@@ -65,6 +66,7 @@ const GalleryPage = ({ isDark }) => {
     img29,
     img30,
     img31,
+    img32,
   ];
 
   return <Gallery images={images} data="Gallery" isDark={isDark} />;
