@@ -21,6 +21,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import GalleryPage from "./pages/GalleryPage";
 import ProceduresPage from "./pages/ProceduresPage";
+import MediaPage from "./pages/MediaPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -94,6 +95,7 @@ function App() {
             element={<ProceduresPage isDark={isDark} />}
           />
           <Route path="/gallery" element={<GalleryPage isDark={isDark} />} />
+          <Route path="/media" element={<MediaPage isDark={isDark} />} />
           <Route
             path="/testimonials"
             element={<TestimonialsPage isDark={isDark} />}

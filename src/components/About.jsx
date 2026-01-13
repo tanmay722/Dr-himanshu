@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import profileImage from "../assets/about.jpg"; // Update with your actual image path
 
 export default function About({ isDark }) {
@@ -114,6 +115,35 @@ export default function About({ isDark }) {
               skills and exposure to international best practices in orthopedic
               surgery.
             </motion.p>
+
+            <motion.div
+              variants={itemVariants}
+              className="mt-6 flex flex-col sm:flex-row gap-3 items-center"
+            >
+              <Link
+                to="/gallery"
+                className={`inline-flex items-center justify-center px-4 py-2 rounded-md font-medium transition-shadow shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-400 ${
+                  isDark
+                    ? "bg-cyan-500 text-white hover:bg-cyan-400"
+                    : "bg-blue-600 text-white hover:bg-blue-500"
+                }`}
+                aria-label="Go to gallery page"
+              >
+                View Gallery
+              </Link>
+
+              <Link
+                to="/media"
+                className={`inline-flex items-center justify-center px-4 py-2 rounded-md font-medium transition border ${
+                  isDark
+                    ? "border-cyan-500 text-cyan-400 bg-transparent hover:bg-slate-800/40"
+                    : "border-blue-100 text-slate-800 bg-white hover:bg-blue-50"
+                }`}
+                aria-label="Go to media and resources page"
+              >
+                Media & Resources
+              </Link>
+            </motion.div>
           </motion.div>
 
           {/* Image Section */}

@@ -27,7 +27,6 @@ export default function Navigation({ isDark, toggleTheme }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Order changed → Contact LAST
   const navItems = [
     { label: "About", id: "about", icon: HiOutlineUser },
     { label: "Experience", id: "experience", icon: HiBriefcase },
@@ -36,7 +35,6 @@ export default function Navigation({ isDark, toggleTheme }) {
     { label: "Guest Talks", id: "guest-talks", icon: HiPresentationChartLine },
     { label: "Publications", id: "publications", icon: HiOutlineBookOpen },
     { label: "Testimonials", id: "testimonials", icon: HiChatAlt2 },
-    { label: "Contact", id: "contact", icon: HiOutlineMail },
   ];
 
   const scrollToSection = (id) => {
@@ -124,6 +122,18 @@ export default function Navigation({ isDark, toggleTheme }) {
             >
               <HiPhotograph size={16} />
               Gallery
+            </Link>
+
+            <Link
+              to="/media"
+              className={`px-2.5 py-2 flex items-center gap-1.5 text-sm rounded-lg ${
+                isDark
+                  ? "text-slate-300 hover:text-cyan-400 hover:bg-slate-800/60"
+                  : "text-slate-700 hover:text-cyan-600 hover:bg-blue-100/60"
+              }`}
+            >
+              <HiPhotograph size={16} />
+              Media
             </Link>
           </div>
 
@@ -221,8 +231,9 @@ export default function Navigation({ isDark, toggleTheme }) {
                   Gallery
                 </Link>
 
+                {/* Media */}
                 <Link
-                  to="#contact"
+                  to="/media"
                   onClick={() => setIsOpen(false)}
                   className={`w-full flex items-center gap-2 px-5 py-3.5 text-[15px] rounded-lg transition ${
                     isDark
@@ -231,7 +242,7 @@ export default function Navigation({ isDark, toggleTheme }) {
                   }`}
                 >
                   <HiPhotograph size={18} />
-                  Contact
+                  Media
                 </Link>
               </div>
             </motion.div>
