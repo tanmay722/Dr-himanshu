@@ -4,7 +4,17 @@ import { FiExternalLink } from "react-icons/fi";
 
 export default function MediaVideos({ isDark }) {
   const videos = [
-    { type: "youtube", id: "o5KEaGL_yhI", title: "Podcast on sports injury" },
+    {
+      type: "youtube",
+      id: "o5KEaGL_yhI",
+      title: "Podcast on sports injury | Dr. Himanshu Bhayana",
+    },
+    {
+      type: "youtube",
+      id: "hyguHYs_ZQs",
+      title:
+        "Bones, Muscles & Joints: What Every Person Should Know | Dr. Himanshu Bhayana",
+    },
     {
       type: "instagram",
       id: "DSmFPq9kjLB",

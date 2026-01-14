@@ -5,26 +5,26 @@ export default function MediaPPTs({ isDark }) {
   // Combined list of presentations (pptx) and PDFs in /public
   const files = [
     {
+      title: "Shoulder Instability Scores",
+      file: "/Shoulder_Instability_Scores_Visual_Conference.pptx",
+      type: "pptx",
+    },
+    {
       title: "38-MD_Orthobiologics_38",
       file: "/38-MD_Orthobiologics_38.pdf",
       type: "pdf",
     },
     {
       title: "Hyalurinidase injection in knee arthritis",
-      file: "/Hyalurinidase injection in knee arthritis.pdf",
+      file: "/Hyalurinidase_injection_in_knee_arthritis.pdf",
       type: "pdf",
     },
     {
       title: "meniscus repair",
-      file: "/meniscus repair - rohit.pdf",
+      file: "/meniscus_repair_-_rohit.pdf",
       type: "pdf",
     },
-    { title: "platelet", file: "/platelet rohit.pdf", type: "pdf" },
-    {
-      title: "Shoulder Instability Scores",
-      file: "/Shoulder_Instability_Scores_Visual_Conference.pptx",
-      type: "pptx",
-    },
+    { title: "platelet", file: "/platelet_rohit.pdf", type: "pdf" },
   ];
 
   const [index, setIndex] = useState(0);
