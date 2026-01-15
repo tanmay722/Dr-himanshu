@@ -1,30 +1,34 @@
 import React, { useState, useRef, useEffect } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
-export default function MediaPPTs({ isDark }) {
+export default function Doc({ isDark }) {
   // Combined list of presentations (pptx) and PDFs in /public
   const files = [
     {
-      title: "Shoulder Instability Scores",
-      file: "/Shoulder_Instability_Scores_Visual_Conference.pptx",
-      type: "pptx",
-    },
-    {
-      title: "38-MD_Orthobiologics_38",
-      file: "/38-MD_Orthobiologics_38.pdf",
+      title: " PRP (Platelet Rich Plasma in partial Supraspinatus Tear",
+      file: "/PRP ( platelet rich plasma in partial cuff tear).pdf",
       type: "pdf",
     },
     {
-      title: "Hyalurinidase injection in knee arthritis",
-      file: "/Hyalurinidase_injection_in_knee_arthritis.pdf",
+      title: "Viscosupplementation in Knee Arthritis",
+      file: "/viscosupplementation in knee.pdf",
       type: "pdf",
     },
     {
-      title: "meniscus repair",
-      file: "/meniscus_repair_-_rohit.pdf",
+      title: "Types of Meniscus Tears",
+      file: "/Types of Meniscus Repair.pdf",
       type: "pdf",
     },
-    { title: "platelet", file: "/platelet_rohit.pdf", type: "pdf" },
+    {
+      title: "PRP after ACL reconstruction",
+      file: "/PRP_after_ACL_reconstruction.pdf",
+      type: "pdf",
+    },
+    {
+      title: "Platelet rich plasma in knee arthritis",
+      file: "/PRP in knee arthritis.pdf",
+      type: "pdf",
+    },
   ];
 
   const [index, setIndex] = useState(0);

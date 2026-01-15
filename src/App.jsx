@@ -22,12 +22,15 @@ import Footer from "./components/Footer";
 import GalleryPage from "./pages/GalleryPage";
 import ProceduresPage from "./pages/ProceduresPage";
 import MediaPage from "./pages/MediaPage";
+import DocPage from "./pages/DocPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
   }, [pathname]);
 
   return null;
@@ -40,6 +43,16 @@ function App() {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
       setIsDark(savedTheme === "dark");
+    }
+  }, []);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const el = document.getElementById(hash.substring(1));
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
     }
   }, []);
 
@@ -96,6 +109,7 @@ function App() {
           />
           <Route path="/gallery" element={<GalleryPage isDark={isDark} />} />
           <Route path="/media" element={<MediaPage isDark={isDark} />} />
+          <Route path="/documents" element={<DocPage isDark={isDark} />} />
           <Route
             path="/testimonials"
             element={<TestimonialsPage isDark={isDark} />}

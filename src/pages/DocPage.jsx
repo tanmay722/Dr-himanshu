@@ -1,7 +1,7 @@
 import React from "react";
-import MediaVideos from "../components/MediaVideos";
+import Doc from "../components/Doc";
 
-export default function MediaPage({ isDark }) {
+export default function DocPage({ isDark }) {
   return (
     <main className="min-h-screen py-16">
       <div className="max-w-6xl mx-auto px-4">
@@ -11,18 +11,19 @@ export default function MediaPage({ isDark }) {
               isDark ? "text-white" : "text-slate-900"
             }`}
           >
-            Media & Videos
+            Documents & Resources
           </h1>
           <p
             className={`text-sm ${
               isDark ? "text-slate-300" : "text-slate-600"
             }`}
           >
-            YouTube videos collected here. Click to watch.
+            Presentation files and documents collected here. Click to open or
+            download.
           </p>
         </header>
 
-        <MediaVideos isDark={isDark} />
+        <Doc isDark={isDark} />
       </div>
     </main>
   );

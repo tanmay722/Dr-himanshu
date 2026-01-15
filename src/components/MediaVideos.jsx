@@ -6,29 +6,17 @@ export default function MediaVideos({ isDark }) {
   const videos = [
     {
       type: "youtube",
-      id: "o5KEaGL_yhI",
-      title: "Podcast on sports injury | Dr. Himanshu Bhayana",
-    },
-    {
-      type: "youtube",
       id: "hyguHYs_ZQs",
       title:
         "Bones, Muscles & Joints: What Every Person Should Know | Dr. Himanshu Bhayana",
     },
-    {
-      type: "instagram",
-      id: "DSmFPq9kjLB",
-      title:
-        "Pressure + delay = damage. Compartment Syndrome needs urgent action.",
-      url: "https://www.instagram.com/reel/DSmFPq9kjLB/?igsh=c2FzdXpjcXVpZXpm",
-    },
-    {
-      type: "instagram",
-      id: "DSo_VaXEnck",
-      title:
-        "Today's food may look filling but often misses key nutrients. Support your muscle and bone health.",
-      url: "https://www.instagram.com/reel/DSo_VaXEnck/?igsh=c2FzdXpjcXVpZXpm",
-    },
+    // {
+    //   type: "instagram",
+    //   id: "DSmFPq9kjLB",
+    //   title:
+    //     "Pressure + delay = damage. Compartment Syndrome needs urgent action.",
+    //   url: "https://www.instagram.com/reel/DSmFPq9kjLB/?igsh=c2FzdXpjcXVpZXpm",
+    // },
   ];
 
   const [loaded, setLoaded] = useState({});

@@ -14,6 +14,7 @@ import {
   HiViewGrid,
   HiPresentationChartLine,
   HiBadgeCheck,
+  HiOutlineDocumentText,
 } from "react-icons/hi";
 
 export default function Navigation({ isDark, toggleTheme }) {
@@ -27,14 +28,53 @@ export default function Navigation({ isDark, toggleTheme }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
-    { label: "About", id: "about", icon: HiOutlineUser },
-    { label: "Experience", id: "experience", icon: HiBriefcase },
-    { label: "Education", id: "education", icon: HiOutlineAcademicCap },
-    { label: "Memberships", id: "memberships", icon: HiBadgeCheck },
-    { label: "Guest Talks", id: "guest-talks", icon: HiPresentationChartLine },
-    { label: "Publications", id: "publications", icon: HiOutlineBookOpen },
-    { label: "Testimonials", id: "testimonials", icon: HiChatAlt2 },
+  const allNavItems = [
+    { label: "About", id: "about", icon: HiOutlineUser, type: "section" },
+    { label: "Media", id: "/media", icon: HiPhotograph, type: "page" },
+    {
+      label: "Documents",
+      id: "/documents",
+      icon: HiOutlineDocumentText,
+      type: "page",
+    },
+    {
+      label: "Publications",
+      id: "publications",
+      icon: HiOutlineBookOpen,
+      type: "section",
+    },
+    { label: "Gallery", id: "/gallery", icon: HiPhotograph, type: "page" },
+    { label: "Procedures", id: "/procedures", icon: HiViewGrid, type: "page" },
+    {
+      label: "Experience",
+      id: "experience",
+      icon: HiBriefcase,
+      type: "section",
+    },
+    {
+      label: "Education",
+      id: "education",
+      icon: HiOutlineAcademicCap,
+      type: "section",
+    },
+    {
+      label: "Membership",
+      id: "memberships",
+      icon: HiBadgeCheck,
+      type: "section",
+    },
+    {
+      label: "Guest Talks",
+      id: "guest-talks",
+      icon: HiPresentationChartLine,
+      type: "section",
+    },
+    {
+      label: "Testimonials",
+      id: "testimonials",
+      icon: HiChatAlt2,
+      type: "section",
+    },
   ];
 
   const scrollToSection = (id) => {
@@ -81,9 +121,22 @@ export default function Navigation({ isDark, toggleTheme }) {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-0.5">
-            {navItems.map((item) => {
+            {allNavItems.map((item) => {
               const Icon = item.icon;
-              return (
+              return item.type === "page" ? (
+                <Link
+                  key={item.id}
+                  to={item.id}
+                  className={`px-2.5 py-2 flex items-center gap-1.5 text-sm rounded-lg transition-all ${
+                    isDark
+                      ? "text-slate-300 hover:text-cyan-400 hover:bg-slate-800/60"
+                      : "text-slate-700 hover:text-cyan-600 hover:bg-blue-100/60"
+                  }`}
+                >
+                  <Icon size={16} />
+                  {item.label}
+                </Link>
+              ) : (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
@@ -98,43 +151,6 @@ export default function Navigation({ isDark, toggleTheme }) {
                 </button>
               );
             })}
-
-            {/* Pages */}
-            <Link
-              to="/procedures"
-              className={`px-2.5 py-2 flex items-center gap-1.5 text-sm rounded-lg ${
-                isDark
-                  ? "text-slate-300 hover:text-cyan-400 hover:bg-slate-800/60"
-                  : "text-slate-700 hover:text-cyan-600 hover:bg-blue-100/60"
-              }`}
-            >
-              <HiViewGrid size={16} />
-              Procedures
-            </Link>
-
-            <Link
-              to="/gallery"
-              className={`px-2.5 py-2 flex items-center gap-1.5 text-sm rounded-lg ${
-                isDark
-                  ? "text-slate-300 hover:text-cyan-400 hover:bg-slate-800/60"
-                  : "text-slate-700 hover:text-cyan-600 hover:bg-blue-100/60"
-              }`}
-            >
-              <HiPhotograph size={16} />
-              Gallery
-            </Link>
-
-            <Link
-              to="/media"
-              className={`px-2.5 py-2 flex items-center gap-1.5 text-sm rounded-lg ${
-                isDark
-                  ? "text-slate-300 hover:text-cyan-400 hover:bg-slate-800/60"
-                  : "text-slate-700 hover:text-cyan-600 hover:bg-blue-100/60"
-              }`}
-            >
-              <HiPhotograph size={16} />
-              Media
-            </Link>
           </div>
 
           {/* Right Actions */}
@@ -178,9 +194,23 @@ export default function Navigation({ isDark, toggleTheme }) {
               exit={{ opacity: 0, y: -10 }}
             >
               <div className="py-1">
-                {navItems.map((item) => {
+                {allNavItems.map((item) => {
                   const Icon = item.icon;
-                  return (
+                  return item.type === "page" ? (
+                    <Link
+                      key={item.id}
+                      to={item.id}
+                      onClick={() => setIsOpen(false)}
+                      className={`w-full flex items-center gap-2 px-5 py-3.5 text-[15px] rounded-lg transition ${
+                        isDark
+                          ? "text-slate-200 hover:bg-slate-700/60"
+                          : "text-slate-700 hover:bg-blue-100/60"
+                      }`}
+                    >
+                      <Icon size={18} />
+                      {item.label}
+                    </Link>
+                  ) : (
                     <button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
@@ -195,55 +225,6 @@ export default function Navigation({ isDark, toggleTheme }) {
                     </button>
                   );
                 })}
-
-                {/* Divider */}
-                <div
-                  className={`mx-5 my-2 h-px ${
-                    isDark ? "bg-slate-700/40" : "bg-blue-200/60"
-                  }`}
-                />
-
-                {/* Procedures */}
-                <Link
-                  to="/procedures"
-                  onClick={() => setIsOpen(false)}
-                  className={`w-full flex items-center gap-2 px-5 py-3.5 text-[15px] rounded-lg transition ${
-                    isDark
-                      ? "text-slate-200 hover:bg-slate-700/60"
-                      : "text-slate-700 hover:bg-blue-100/60"
-                  }`}
-                >
-                  <HiViewGrid size={18} />
-                  Procedures
-                </Link>
-
-                {/* Gallery */}
-                <Link
-                  to="/gallery"
-                  onClick={() => setIsOpen(false)}
-                  className={`w-full flex items-center gap-2 px-5 py-3.5 text-[15px] rounded-lg transition ${
-                    isDark
-                      ? "text-slate-200 hover:bg-slate-700/60"
-                      : "text-slate-700 hover:bg-blue-100/60"
-                  }`}
-                >
-                  <HiPhotograph size={18} />
-                  Gallery
-                </Link>
-
-                {/* Media */}
-                <Link
-                  to="/media"
-                  onClick={() => setIsOpen(false)}
-                  className={`w-full flex items-center gap-2 px-5 py-3.5 text-[15px] rounded-lg transition ${
-                    isDark
-                      ? "text-slate-200 hover:bg-slate-700/60"
-                      : "text-slate-700 hover:bg-blue-100/60"
-                  }`}
-                >
-                  <HiPhotograph size={18} />
-                  Media
-                </Link>
               </div>
             </motion.div>
           )}
