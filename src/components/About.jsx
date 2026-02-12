@@ -43,7 +43,7 @@ export default function About({ isDark }) {
     ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
     : "bg-gradient-to-br from-blue-50 via-white to-cyan-50";
 
-  const textClass = isDark ? "text-white" : "text-slate-900";
+  // const textClass = isDark ? "text-white" : "text-slate-900";
   const textMutedClass = isDark ? "text-slate-300" : "text-slate-600";
   const cardBg = isDark ? "bg-slate-800/50" : "bg-white";
   const cardBorder = isDark ? "border-cyan-400/20" : "border-cyan-300/30";
@@ -89,31 +89,42 @@ export default function About({ isDark }) {
               className={`${textMutedClass} leading-relaxed md:leading-loose`}
             >
               I am an Associate Professor in the Department of Orthopedics at
-              PGIMER, Chandigarh, with a passion for advancing orthopedic
-              surgery through innovative research, clinical excellence, and
-              mentoring. My expertise spans trauma surgery, joint arthroplasty,
-              sports medicine, and arthroscopy.
+              PGIMER, Chandigarh, with a special interest in sports injuries,
+              knee and shoulder problems, and arthroscopic surgery.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
               className={`${textMutedClass} leading-relaxed md:leading-loose`}
             >
-              Driven by a commitment to improving patient outcomes and
-              contributing to orthopedic knowledge, I have published extensively
-              in peer-reviewed journals and actively participated in national
-              and international conferences. My clinical practice combines
-              evidence-based medicine with compassionate patient care.
+              In my daily clinical practice, I treat patients with knee pain,
+              ligament injuries (ACL), meniscus tears, shoulder dislocations,
+              and rotator cuff problems, as well as fractures and joint-related
+              conditions. My approach is always to understand the patient’s
+              concern clearly, explain the condition in simple terms, and
+              recommend surgery only when it is truly necessary.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
               className={`${textMutedClass} leading-relaxed md:leading-loose`}
             >
-              I have completed specialized fellowships in arthroplasty, sports
-              medicine, and arthroscopy in Germany, enhancing my technical
-              skills and exposure to international best practices in orthopedic
-              surgery.
+              I combine evidence-based medicine with compassionate patient care,
+              ensuring that each patient receives an individualized treatment
+              plan focused on safe recovery and long-term function.
+            </motion.p>
+
+            <motion.p
+              variants={itemVariants}
+              className={`${textMutedClass} leading-relaxed md:leading-loose`}
+            >
+              To further refine my surgical skills, I have completed specialized
+              fellowships in arthroplasty, sports medicine, and arthroscopy in
+              Germany, which gave me exposure to international best practices
+              and modern techniques. Along with clinical work, I remain actively
+              involved in teaching, research, and national and international
+              academic meetings, which helps me stay updated with the latest
+              advancements in orthopedic care.
             </motion.p>
 
             <motion.div

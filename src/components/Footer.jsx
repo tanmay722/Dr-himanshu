@@ -8,6 +8,7 @@ import {
   FaMapMarkerAlt,
   FaInstagram,
   FaWhatsapp,
+  FaYoutube,
 } from "react-icons/fa";
 
 export default function Footer({ isDark }) {
@@ -27,10 +28,16 @@ export default function Footer({ isDark }) {
       color: "hover:text-emerald-400",
     },
     {
-      name: "Google scholar link",
+      name: "Google Scholar",
       icon: <FaGraduationCap />,
       url: "https://scholar.google.com/citations?user=jIfRmWMAAAAJ&hl=en",
       color: "hover:text-cyan-400",
+    },
+    {
+      name: "YouTube",
+      icon: <FaYoutube />,
+      url: "https://youtube.com/@drhimanshubhayana?si=u5WO1Qnkxk968EQd", // replace with actual link
+      color: "hover:text-red-500",
     },
   ];
 
